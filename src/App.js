@@ -1,11 +1,11 @@
 import React from "react";
-import UseCollback from "./doc/hooks/use-collback";
 
-const App = () => {
+import UseContext from "./doc/hooks/use-context";
 
+function App() {
     return (
         <React.Fragment>
-            <UseCollback />
+            <UseContext />
         </React.Fragment>
     );
 }

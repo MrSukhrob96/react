@@ -2,10 +2,10 @@ import React, { useContext } from "react"
 import { useAlert } from "./alert-context";
 
 function Alert() {
-
+    
     const alert = useAlert();
 
-    if (!alert) return null;
+    if (!alert.vissable) return null;
 
     return (
         <>

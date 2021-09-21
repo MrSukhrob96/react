@@ -1,0 +1,26 @@
+.post__form_content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.form__content_item {
+  width: 33%;
+  margin: 15px;
+}
+
+.post_items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.post__item {
+  display: flex;
+  justify-content: space-between;
+  width: calc((100% / 3) - 60px);
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}

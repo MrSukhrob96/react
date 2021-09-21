@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import PostForm from "./components/post/PostForm";
 import PostList from "./components/post/PostList";
 import MyInput from "./components/UI/input/MyInput";
@@ -7,11 +7,24 @@ import "./index.css";
 
 export default function Main() {
   const [posts, setPost] = useState([]);
-  const [selectedSort, setSelectedSort] = useState("sort");
+  const [selectedSort, setSelectedSort] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const sortedPosts = useMemo(() => {
+    if (selectedSort) {
+      return [...posts].sort((a, b) =>
+        a[selectedSort].localeCompare(b[selectedSort])
+      );
+    }
+    return posts;
+  }, [selectedSort, posts]);
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((item) => item.title.includes(searchQuery));
+  }, [searchQuery, sortedPosts]);
 
   const createPost = (newPost) => {
-    
-    if (!newPost.description || !newPost.title) {
+    if (!newPost.description && !newPost.title) {
       return;
     }
 
@@ -28,7 +41,6 @@ export default function Main() {
 
   const sortPosts = (sort) => {
     setSelectedSort(sort);
-    setPost([...posts].sort((a, b) => a[sort].localeCompare(b[sort])));
   };
 
   return (
@@ -48,10 +60,17 @@ export default function Main() {
                 onChange={sortPosts}
               />
               <div style={{ width: "400px" }}>
-                <MyInput type="text" placeholder="Search...." />
+                <MyInput
+                  type="text"
+                  value={searchQuery}
+                  placeholder="Search...."
+                  onChange={(e) =>
+                    setSearchQuery((prev) => (prev = e.target.value))
+                  }
+                />
               </div>
             </div>
-            <PostList posts={posts} remove={deletePost} />
+            <PostList posts={sortedAndSearchedPosts} remove={deletePost} />
           </>
         ) : (
           <h3>empty</h3>

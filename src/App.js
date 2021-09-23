@@ -1,10 +1,9 @@
 import React from "react";
-import ReduxComponent from "./doc/redux/index";
 
 function App() {
-    return (
-      <ReduxComponent />
-    );
+  return (
+    <></>
+  );
 }
 
 // npx create-react-app react-ts --template typescript

@@ -1,13 +1,18 @@
-import React from "react"
+import React, { Component } from "react"
+import PostForm from "./components/PostForm";
+import Posts from "./components/Posts";
+import { Provider } from "react-redux";
+import store from "./store";
 
-function ReduxComponent(){
-
-    return (
-        <>
-        redux
-        </>
-    )
-
+class ReduxComponent extends Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <PostForm />
+                <Posts />
+            </Provider>
+        )
+    }
 }
 
 export default ReduxComponent;

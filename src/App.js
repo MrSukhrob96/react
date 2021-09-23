@@ -1,8 +1,9 @@
 import React from "react";
+import ReduxComponent from "./redux/ReduxComponent";
 
 function App() {
   return (
-    <></>
+    <ReduxComponent />
   );
 }
 

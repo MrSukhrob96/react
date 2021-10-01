@@ -1,0 +1,143 @@
+1)
+	-- Примитивный тип данных
+		1) null, 
+		2) underfined, 
+		3) boolean, 
+		4) number,
+		5) bigInt 
+		6) string, 
+		7) symbol
+
+		Ссылочный тип данных или объекты
+		8) object 
+			[
+				Array, 
+				Object, 
+				Function, 
+				Map, 
+				Set, 
+				WeakMap, 	
+				WeakSet
+			] 
+=======================================================
+
+2) 
+
+underfined - это когда переменный обявлена не дано значение
+
+=======================================================
+
+3) null - это когда у переменный нет никакой данныйх 
+
+=======================================================
+
+4) 
+	
+	false == '' 	// true
+	false == [] 	// true
+	false == {}		// false
+	'' == 0			// true
+	'' == []			// true
+	''	== {}			//	false
+	0	==	[]			// true
+	0 	== {}			// false
+	0	== null		//	false
+
+=======================================================
+
+5) 
+
+let a = [1, 2, 3]; let b = a; b.push(4); бу холатда a === b килса true оламиз чунки бу ссылка оркали берилади. агар a = [1, 2, 3]; let b = a; b= [1, 2, 3] берсак улар тенг эмас. Arry, Object, Map, Set буларда хам шу холат кузатилади чунки булар ссҷлочнҷ тип даннихга мансуб
+
+=======================================================
+
+6) 
+
+scope (область видимости) - это доступности определённох переменный в функции. 2тип scope локалный и локалный. 
+
+=======================================================
+
+7) hosting - Поднятие или hoisting — это механизм в JavaScript, в котором переменные и объявления функций, передвигаются вверх своей области видимости перед тем, как код будет выполнен 
+
+=======================================================
+
+8)
+
+	8.1) function sayHi() {
+			  alert( "Привет" );
+			}
+
+	8.2)  let sayHi = function() {
+			  alert( "Привет" );
+			};
+
+	8.3)  let sayHi = () => {
+			  alert( "Привет" );
+			};
+
+	// 8.1 Function Declaration
+	// 8.2 Function Expression
+	// 8.3 arrow functions
+
+=======================================================
+
+9)
+	let && const - let бу блок билан чегараланга ва узгатириш имконияти мавжуд сonst да эса йук только для модификации есть возможност
+
+======================================================
+
+10) 
+	
+Замыкание — Замыкание даёт нам доступ к Scope внешней функции из внутренней функции. В JavaScript замыкания создаются каждый раз при создании функции, во время её создания.
+
+function frameworksActionList(){
+	const frameworks = ["vue", "react", angular]
+
+	return {
+		print: function() {
+			console.log(fw.join(" "))
+		}
+		add: function(framework) {
+			fw.push(framework)
+		}
+	}
+}
+
+
+const frameworksAction = frameworksActionList()
+frameworksAction.print() // worked
+frameworksAction.add("skale") //worked
+frameworksAction.frameworks // error
+
+бу бизга private переменнийлар тузишга имконият яратиб беради
+
+======================================================
+
+11)
+
+IIFE - Immedite Invoke Function Expression
+
+(function(){
+	console.log('IIFE')	
+})()
+
+======================================================
+
+12) Контекст -  this это функция который вызвана тот объекте  bind, call, applay
+
+const person = {
+	surname: 'Sukhrob',
+	info: function(name){
+		return this.surname
+	}
+}
+
+const olim = {
+	surname: 'Juraev'
+}
+
+person.info.bind(olim)('Olim')
+person.info.call(olim, 'Olim')
+person.info.applay(olim, ['olim'])
+
+======================================================
